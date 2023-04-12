@@ -1,0 +1,17 @@
+<mat-toolbar>
+  <a routerLink="" class="logo">Cat App</a>
+  <span class="menu-spacer"></span>
+  <ng-content *ngIf="(isLoggedIn$ | async) as isLoggedIn; then logoutBtn  else loginBtn" />
+</mat-toolbar>
+
+<ng-template #logoutBtn>
+  <button mat-button color="accent" (click)="logout()">
+    Log out
+  </button>
+</ng-template>
+
+<ng-template #loginBtn>
+  <a routerLink="login" mat-button color="primary">
+    Log In
+  </a>
+</ng-template>

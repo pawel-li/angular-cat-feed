@@ -1,0 +1,19 @@
+<header class="home">
+  <div>
+    <h1>Welcome to the cat app</h1>
+    <h2>Get all the cat facts right now</h2>
+    <ng-content *ngIf="(isLoggedIn$ | async) as isLoggedIn; then logoutBtn  else loginBtn" />
+  </div>
+</header>
+
+<ng-template #logoutBtn>
+  <a routerLink="feed" mat-raised-button color="primary">
+    Go to the feed
+  </a>
+</ng-template>
+
+<ng-template #loginBtn>
+  <a routerLink="login" mat-raised-button color="primary">
+    Log In
+  </a>
+</ng-template>

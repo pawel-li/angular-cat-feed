@@ -1,0 +1,20 @@
+.content {
+  height: calc(100vh - 64px);
+  overflow: auto;
+}
+
+.example-card {
+  width: 35em;
+  max-width: 90%;
+  margin: 1em auto
+}
+
+.spinner-item {
+  display: grid;
+  place-items: center;
+  margin-top: 10px;
+}
+
+mat-card-header {
+  padding: 1em;
+}

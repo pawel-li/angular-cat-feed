@@ -1,0 +1,18 @@
+.login-card {
+  max-width: 30em;
+  margin: 2em auto;
+
+  mat-card-content {
+    padding-top: 1em;
+  }
+
+  form,
+  mat-card-actions {
+    display: flex;
+    flex-direction: column;
+  }
+
+  mat-form-field {
+    margin-bottom: 1em;
+  }
+}
