@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Validators, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AuthService } from '../services/auth/auth.service';
 import { NotificationService } from '../services/notification.service';
 
@@ -69,10 +70,10 @@ export class LoginComponent {
 
   public async submitForm(): Promise<void> {
     if (this.form.invalid) return;
-    this.authService.login(this.form.controls.email.value, this.form.controls.password.value).subscribe(
-      () => { this.router.navigate(['/feed']); },
-      (error: HttpErrorResponse) => { this.notificationService.error(error.message); }
-    );
+    this.authService.login(this.form.controls.email.value, this.form.controls.password.value).subscribe({
+      next: () => { this.router.navigate(['/feed']); },
+      error: (error: HttpErrorResponse) => { this.notificationService.error(error.message); }
+    });
   }
 
   private getErrorMessageForEmail(): string {
