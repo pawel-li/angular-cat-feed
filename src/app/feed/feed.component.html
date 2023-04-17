@@ -3,12 +3,12 @@
     <ng-container *cdkVirtualFor="let fact of items">
       <mat-card class="example-card">
         <mat-card-header>
-          <mat-card-title>{{fact}}</mat-card-title>
+          <mat-card-title>{{ fact }}</mat-card-title>
         </mat-card-header>
       </mat-card>
     </ng-container>
     <div class="spinner-item">
-      <mat-progress-spinner [mode]="'indeterminate'" [diameter]="50"></mat-progress-spinner>
+      <mat-progress-spinner mode="indeterminate" [diameter]="50"></mat-progress-spinner>
     </div>
   </mat-list>
 </cdk-virtual-scroll-viewport>

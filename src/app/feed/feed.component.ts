@@ -1,6 +1,6 @@
 import { catchError, takeUntil } from 'rxjs/operators';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
-import { Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { filter, firstValueFrom, fromEvent, map, pairwise, Subject, throttleTime } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { NotificationService } from '../services/notification.service';
@@ -13,7 +13,7 @@ export type FactData = { data: string[] }
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss']
 })
-export class FeedComponent {
+export class FeedComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('scroller') public scroller!: CdkVirtualScrollViewport;
   public items: string[] = [];
   private destroy$ = new Subject();
